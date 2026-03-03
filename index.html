@@ -1,0 +1,33 @@
+<button id="link-button">Connect Bank</button>
+
+<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+
+<script>
+fetch('https://n8n.coreautomations.org/webhook/get-link-token')
+  .then(res => res.json())
+  .then(data => {
+    const handler = Plaid.create({
+      token: data.link_token,
+
+      onSuccess: function (public_token, metadata) {
+        console.log("SUCCESS", public_token, metadata);
+
+        fetch('https://n8n.coreautomations.org/webhook/exchange-token', {
+          method: 'POST',
+          body: public_token
+        })
+        .then(res => res.text())
+        .then(data => console.log("Webhook response:", data))
+        .catch(err => console.error("Webhook error:", err));
+      },
+
+      onExit: function(err, metadata) {
+        console.log("EXIT", err, metadata);
+      }
+    });
+
+    document.getElementById('link-button').onclick = function () {
+      handler.open();
+    };
+  });
+</script>
