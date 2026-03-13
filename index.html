@@ -1,4 +1,194 @@
-<button id="link-button">Connect Bank</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secure Bank Integration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background:#f5f7fb;
+color:#1f2937;
+}
+
+/* Layout */
+
+.page{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:30px;
+}
+
+.card{
+background:white;
+width:900px;
+max-width:100%;
+border-radius:12px;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+display:flex;
+overflow:hidden;
+}
+
+/* Left panel */
+
+.left{
+flex:1;
+background:#111827;
+color:white;
+padding:50px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.left h1{
+margin:0 0 20px;
+font-size:28px;
+font-weight:600;
+}
+
+.left p{
+color:#d1d5db;
+line-height:1.6;
+font-size:14px;
+margin-bottom:30px;
+}
+
+.features{
+font-size:14px;
+line-height:2;
+}
+
+.features div{
+opacity:.9;
+}
+
+/* Right panel */
+
+.right{
+flex:1;
+padding:50px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.right h2{
+margin:0 0 10px;
+font-size:24px;
+}
+
+.right p{
+margin:0 0 30px;
+color:#6b7280;
+font-size:14px;
+}
+
+#link-button{
+width:100%;
+padding:16px;
+font-size:16px;
+font-weight:600;
+border:none;
+border-radius:8px;
+background:#2563eb;
+color:white;
+cursor:pointer;
+transition:0.2s;
+}
+
+#link-button:hover{
+background:#1d4ed8;
+}
+
+.security{
+margin-top:20px;
+font-size:12px;
+color:#9ca3af;
+text-align:center;
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+.card{
+flex-direction:column;
+}
+
+.left{
+padding:35px 25px;
+text-align:center;
+}
+
+.right{
+padding:35px 25px;
+}
+
+.left h1{
+font-size:22px;
+}
+
+.right h2{
+font-size:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="card">
+
+<div class="left">
+
+<h1>Financial Account Integration</h1>
+
+<p>
+Securely connect your banking institution to allow the platform to retrieve financial account data needed for processing and analysis.
+</p>
+
+<div class="features">
+<div>• Enterprise-grade encrypted connections</div>
+<div>• Secure API banking infrastructure</div>
+<div>• Read-only financial access</div>
+<div>• Compliant financial data handling</div>
+</div>
+
+</div>
+
+<div class="right">
+
+<h2>Connect Your Bank</h2>
+
+<p>
+Authorize a secure connection to your financial institution to begin importing account information.
+</p>
+
+<button id="link-button">Connect Bank Account</button>
+
+<div class="security">
+Your login credentials are never stored. All connections use bank-level encryption.
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
 
@@ -31,3 +221,6 @@ fetch('https://n8n.coreautomations.org/webhook/get-link-token')
     };
   });
 </script>
+
+</body>
+</html>
